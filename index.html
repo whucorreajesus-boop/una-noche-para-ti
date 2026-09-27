@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una noche para ti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <main id="app">
+    <section class="screen screen--active secret-screen" id="secret-screen" aria-labelledby="secret-title">
+      <div class="secret-panel">
+        <p class="eyebrow">SECURITY SYSTEM // NIGHT SHIFT</p>
+        <h1 id="secret-title">INGRESA LA FECHA<br>SECRETA</h1>
+        <p class="secret-display" id="secret-display">__/__/____</p>
+        <div class="keypad" aria-label="Teclado de contraseña">
+          <button type="button" data-key="0">0</button><button type="button" data-key="1">1</button><button type="button" data-key="2">2</button>
+          <button type="button" data-key="3">3</button><button type="button" data-key="4">4</button><button type="button" data-key="5">5</button>
+          <button type="button" data-key="6">6</button><button type="button" data-key="7">7</button><button type="button" data-key="8">8</button>
+          <button type="button" data-key="9">9</button><button type="button" data-key="clear">C</button><button type="button" data-key="backspace">←</button>
+        </div>
+        <button class="pixel-button secret-submit" id="secret-submit" type="button">DESBLOQUEAR</button>
+        <p class="secret-status" id="secret-status" aria-live="polite">Escribe nuestra fecha especial</p>
+      </div>
+    </section>
+
+    <section class="screen" id="welcome-screen" aria-labelledby="welcome-title">
+      <div class="spotlight spotlight--welcome"></div>
+      <div class="welcome-wall" aria-hidden="true"></div>
+      <div class="welcome-floor" aria-hidden="true"></div>
+      <div class="welcome-animatronics" aria-hidden="true">
+        <img class="welcome-animatronic welcome-animatronic--left" src="fnf2.png" alt="">
+        <img class="welcome-animatronic welcome-animatronic--right" src="fnf1.png" alt="">
+        <img class="welcome-animatronic welcome-animatronic--back" src="fnf3.png" alt="">
+      </div>
+      <div class="intro-copy">
+        <h1 id="welcome-title">HOLA MI AMOR</h1>
+        <p class="subtitle">QUIERES VER TU SOPRESA</p>
+        <button class="pixel-button pixel-button--primary" id="start-button" type="button">Sí</button>
+      </div>
+    </section>
+
+    <section class="screen logo-screen" id="logo-screen" aria-label="Presentación">
+      <div class="logo-screen__art">
+        <img src="logo.png" alt="Logo" class="logo-screen__image">
+        <span class="logo-screen__replacement">TEAMO &lt;3</span>
+      </div>
+    </section>
+
+    <section class="screen countdown-screen" id="countdown-screen" aria-live="assertive" aria-label="Cuenta regresiva">
+      <p class="eyebrow">PREPARANDO SORPRESA...</p>
+      <div class="countdown-number" id="countdown-number">3</div>
+      <div class="loading-bar"><span></span></div>
+    </section>
+
+    <section class="screen menu-screen" id="menu-screen" aria-labelledby="menu-title">
+      <header class="menu-header"><div><p class="eyebrow">NIGHT SHIFT // PERSONAL</p><h2 id="menu-title">SORPRESA MI AMOR!!</h2></div><div class="security-cam">CAM 04 <span class="record-dot"></span></div></header>
+      <p class="menu-subtitle">ELIGE CADA UNO <span>◆</span></p>
+      <div class="plush-stage">
+        <button class="plush-card plush-card--bonnie" data-page="playlist" type="button" aria-label="Abrir playlist de Bonnie"><img src="fnf2.png" alt="Bonnie" class="plush-img"><span class="plush-name">BONNIE</span><span class="plush-action">▶ escuchar</span></button>
+        <button class="plush-card plush-card--foxy" data-page="messages" type="button" aria-label="Abrir mensajes de Foxy"><img src="fnf1.png" alt="Foxy" class="plush-img"><span class="plush-name">FOXY</span><span class="plush-action">♥ mensajes</span></button>
+        <button class="plush-card plush-card--freddy" data-page="letter" type="button" aria-label="Abrir carta de Freddy"><img src="fnf3.png" alt="Freddy" class="plush-img"><span class="plush-name">FREDDY</span><span class="plush-action">✉ carta</span></button>
+        <button class="plush-card plush-card--chica" data-page="photos" type="button" aria-label="Abrir fotos de Chica"><img src="fnf4.png" alt="Chica" class="plush-img"><span class="plush-name">CHICA</span><span class="plush-action">▣ fotos</span></button>
+      </div>
+      <p class="floor-note">_ pulsa un peluche para desbloquear un recuerdo _</p>
+      <button class="pixel-button heart-game-launch" id="heart-game-launch" type="button">CAZAR CORAZONES</button>
+      <div class="night-clear-prompt" id="night-clear-prompt">
+        <p id="visit-progress">RECUERDOS VISITADOS: 0/4</p>
+        <button class="pixel-button" id="night-clear-button" type="button">PRESIONA!!!</button>
+      </div>
+    </section>
+
+    <section class="screen heart-game-screen" id="heart-game-screen" aria-labelledby="heart-game-title">
+      <div class="heart-game-header">
+        <button class="back-button" id="heart-game-back" type="button">← menú</button>
+        <div>
+          <p class="eyebrow">ARCADE MINI GAME // CAM 05</p>
+          <h2 id="heart-game-title">CAZANDO CORAZONES</h2>
+        </div>
+        <p class="heart-score">CORAZONES: <strong id="heart-score">0</strong></p>
+      </div>
+      <div class="heart-game-board" id="heart-game-board" aria-label="Área para atrapar corazones">
+        <p class="heart-game-hint">MUEVE EL MOUSE PARA ATRAPARLOS</p>
+        <div class="heart-player" id="heart-player">♥</div>
+        <div class="falling-hearts" id="falling-hearts"></div>
+      </div>
+      <button class="pixel-button heart-game-start" id="heart-game-start" type="button">INICIAR JUEGO</button>
+      <p class="heart-reward" id="heart-reward">FELICIDADES<br>UN CUPON PARA HACER LO QUE QUIERAS</p>
+    </section>
+
+    <section class="screen night-clear-screen" id="night-clear-screen" aria-labelledby="night-clear-title">
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+      <div class="night-clear-content">
+        <p class="night-clear-label">NIGHT CLEARED</p>
+        <h2 id="night-clear-title">5:59 AM</h2>
+        <div class="night-clear-line"></div>
+        <p class="victory-message">🎉 ¡Sobreviviste!<br>Has desbloqueado mi corazón para siempre 💖🧸</p>
+        <p class="final-scare-countdown" id="final-scare-countdown" aria-live="polite">ESPERA... 5</p>
+        <button class="final-scare-button" id="final-scare-button" type="button">PRESIONA AQUÍ, TE ENCANTARÁ</button>
+      </div>
+      <audio id="night-clear-audio" src="cancion 600.mp3" preload="auto"></audio>
+    </section>
+
+    <section class="screen sub-screen" id="playlist-screen" aria-labelledby="playlist-title"><div class="sub-screen__content"><button class="back-button" type="button" data-back>← menú</button><p class="eyebrow">BONNIE'S MUSIC BOX</p><h2 id="playlist-title">TUS CANCIONES<br>FAVORITAS</h2><div class="music-layout"><div class="player-visual"><img id="now-playing-image" class="now-playing-image is-placeholder" src="FONDO PARA CANCION.png" alt="Selecciona una canción"><span>SONANDO AHORA</span><strong id="now-playing-title">selecciona una canción</strong><small id="now-playing-artist">elige una pista</small><div class="progress-wrap"><input id="progress-bar" type="range" min="0" max="0" value="0" step="0.1" aria-label="Progreso de la canción"><div class="progress-times"><span id="elapsed-time">0:00</span><span id="total-time">0:00</span></div></div><div class="player-controls" aria-label="Controles del reproductor"><button id="previous-track-button" type="button" aria-label="Canción anterior">⏮</button><button id="toggle-track-button" type="button" aria-label="Reproducir canción">⏯</button><button id="card-next-track-button" type="button" aria-label="Siguiente canción">⏭</button></div><audio id="audio-player" preload="none"></audio></div><div class="playlist" id="playlist"></div></div></div></section>
+
+    <section class="screen sub-screen" id="messages-screen" aria-labelledby="messages-title"><div class="sub-screen__content messages-content"><button class="back-button" type="button" data-back>← menú</button><p class="eyebrow">FOXY'S LOVE LOG</p><h2 id="messages-title">TODO ESTO ES<br>PARA TI AMOR</h2><p class="section-intro">Abre una caja. Hay un mensaje escondido en cada una.</p><div class="message-grid" id="message-grid"></div><p class="message-output" id="message-output">elige un mensaje ↑</p></div></section>
+
+    <section class="screen sub-screen letter-screen" id="letter-screen" aria-labelledby="letter-title"><div class="sub-screen__content letter-content"><button class="back-button" type="button" data-back>← menú</button><p class="eyebrow">FREDDY'S PRIVATE NOTE</p><h2 id="letter-title">TE DEDICO ESTO<br>MI AMOR</h2><article class="letter"><p class="letter-greeting">Para mi princesa:</p><p>Si esta noche tuviera un escenario, tú serías la única luz que necesito. Gracias por convertir los días normales en recuerdos que quiero guardar para siempre.</p><p>Me encanta tu forma de mirar el mundo, tu risa, tus pequeños detalles y esa manera tuya de hacer que todo se sienta un poquito más en casa. A tu lado, incluso la noche más larga tiene algo bonito.</p><p>Hoy celebro que existas, que estés aquí y que podamos seguir escribiendo nuestra historia, canción por canción, abrazo por abrazo. Te elegiría en cada partida, en cada vida y en cada noche.</p><p class="letter-signature">Con todo mi amor,<br><strong>tu chinito ♥</strong></p></article></div></section>
+
+    <section class="screen sub-screen photos-screen" id="photos-screen" aria-labelledby="photos-title"><div class="sub-screen__content"><button class="back-button" type="button" data-back>← menú</button><p class="eyebrow">CHICA'S PHOTO BOOTH</p><h2 id="photos-title">NUESTRAS<br>FOTOS</h2><p class="section-intro">Momentos que hacen que mi corazón haga “ding”.</p><div class="photo-collage" id="photo-collage" aria-label="Galería de fotos"></div></div></section>
+  </main>
+  <div class="music-status" id="music-status" aria-live="polite">♫ música activada</div>
+  <div class="fear-overlay" id="fear-overlay" aria-hidden="true">
+    <img src="SCREMER.PNG" alt="" class="fear-image">
+    <p class="fear-text">TE ENCONTRÉ... 🩸</p>
+  </div>
+  <audio id="fear-audio" src="sonido-terror.mp3" preload="auto"></audio>
+  <div class="music-controls" id="music-controls" aria-label="Controles de música">
+    <button id="stop-music-button" type="button" aria-label="Parar música">■ parar</button>
+    <button id="next-track-button" type="button" aria-label="Siguiente canción">siguiente ▶</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
